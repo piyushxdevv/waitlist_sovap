@@ -126,12 +126,10 @@ export default function HomePage() {
                 {/* Hero Title */}
                 <div className="space-y-4">
                   <h1 className="font-headline text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-gray-900 dark:text-white">
-                    Your Personalized AI Tutor for{" "}
-                    <span className="text-blue-600 dark:text-blue-400">Cybersecurity</span>
+                    Your Personalized AI Tutor 
                   </h1>
                   <p className="text-lg sm:text-xl md:text-2xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
-                    A 24/7 smart mentor that adapts to your level, speed, and goals—taking you from beginner to
-                    cybersecurity engineer.
+                    A 24/7 smart mentor that adapts to your level, speed, and goals—taking you from beginner to engineer.
                   </p>
                 </div>
 
