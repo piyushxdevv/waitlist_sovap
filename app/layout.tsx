@@ -27,7 +27,7 @@ export const viewport: Viewport = {
 }
 
 export const metadata: Metadata = {
-  title: "SOVAP - Your Personalized AI Tutor for Cybersecurity",
+  title: "SOVAP - Your Personalized AI Tutor",
   description: "A 24/7 smart mentor that adapts to your level, speed, and goals—taking you from beginner to cybersecurity engineer. Join our waitlist for early access.",
   keywords: "cybersecurity, AI tutor, personalized learning, ethical hacking, penetration testing, cybersecurity education, CEH, OSCP, CISSP",
   authors: [{ name: "SOVAP Team" }],
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
   robots: "index, follow",
   openGraph: {
     title: "SOVAP - Your Personalized AI Tutor for Cybersecurity",
-    description: "A 24/7 smart mentor that adapts to your level, speed, and goals—taking you from beginner to cybersecurity engineer.",
+    description: "A 24/7 smart mentor that adapts to your level, speed, and goals—taking you from beginner to engineer.",
     url: "https://sovap.com",
     siteName: "SOVAP",
     type: "website",
