@@ -12,10 +12,10 @@ export async function joinWaitlist(email: string) {
     const fromEmail = process.env.RESEND_FROM_EMAIL
 
     if (!fromEmail || fromEmail === "onboarding@resend.dev") {
-      console.error("[v0] RESEND_FROM_EMAIL is not configured properly!")
-      console.error("[v0] Current value:", fromEmail || "NOT SET")
+      console.error("[SOVAP] RESEND_FROM_EMAIL is not configured properly!")
+      console.error("[SOVAP] Current value:", fromEmail || "NOT SET")
       console.error(
-        "[v0] Please set RESEND_FROM_EMAIL to an email from your verified domain (e.g., noreply@yourdomain.com)",
+        "[SOVAP] Please set RESEND_FROM_EMAIL to an email from your verified domain (e.g., noreply@yourdomain.com)",
       )
     }
 
@@ -41,8 +41,8 @@ export async function joinWaitlist(email: string) {
         )
       }
 
-      console.log("[v0] Attempting to send email to:", email)
-      console.log("[v0] Using from address:", fromEmail)
+      console.log("[SOVAP] Attempting to send email to:", email)
+      console.log("[SOVAP] Using from address:", fromEmail)
 
       const result = await resend.emails.send({
         from: `SOVAP Team <${fromEmail}>`,
@@ -94,22 +94,22 @@ export async function joinWaitlist(email: string) {
         `,
       })
 
-      console.log("[v0] Email sent successfully:", result)
+      console.log("[SOVAP] Email sent successfully:", result)
       emailSent = true
 
       // Update the database to mark as notified
       const { error: updateError } = await supabase.from("waitlist").update({ notified: true }).eq("id", data.id)
 
       if (updateError) {
-        console.error("[v0] Failed to update notified status:", updateError)
+        console.error("[SOVAP] Failed to update notified status:", updateError)
       } else {
-        console.log("[v0] Successfully updated notified status for:", email)
+        console.log("[SOVAP] Successfully updated notified status for:", email)
       }
     } catch (emailError: any) {
-      console.error("[v0] Failed to send email:", emailError)
-      console.error("[v0] Error message:", emailError?.message)
+      console.error("[SOVAP] Failed to send email:", emailError)
+      console.error("[SOVAP] Error message:", emailError?.message)
       console.error(
-        "[v0] If you see a 403 error, make sure RESEND_FROM_EMAIL is set to an email from your verified domain",
+        "[SOVAP] If you see a 403 error, make sure RESEND_FROM_EMAIL is set to an email from your verified domain",
       )
 
       // Still return success since the email was saved to the database
@@ -126,7 +126,7 @@ export async function joinWaitlist(email: string) {
         : "Successfully joined the waitlist!",
     }
   } catch (error) {
-    console.error("[v0] Error joining waitlist:", error)
+    console.error("[SOVAP] Error joining waitlist:", error)
     return {
       success: false,
       message: "Something went wrong. Please try again.",
@@ -144,7 +144,7 @@ export async function getWaitlistCount() {
 
     return { count: count || 0 }
   } catch (error) {
-    console.error("[v0] Error getting waitlist count:", error)
+    console.error("[SOVAP] Error getting waitlist count:", error)
     return { count: 0 }
   }
 }
